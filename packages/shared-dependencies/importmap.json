@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.5/lib/system/single-spa.min.js",
+    "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
+    "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
+    "@mallone/navbar": "http://localhost:8085/mallone-navbar.js",
+    "@mallone/react-styleguide": "http://localhost:8082/mallone-react-styleguide.js",
+    "@mallone/state-management": "http://localhost:8083/mallone-state-management.js"
+  }
+}

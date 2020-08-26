@@ -1,0 +1,9 @@
+{
+  "name": "shared-dependencies",
+  "scripts": {
+    "start": "http-server --port 8081 --cors"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
