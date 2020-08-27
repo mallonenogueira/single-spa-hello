@@ -1,8 +1,9 @@
 import { registerApplication, start, navigateToUrl } from "single-spa";
+import RedirectComponent from "./redirect.component";
 
 const routes = [
   {
-    name: "home-redirect",
+    name: "my-application",
     route: "/",
     redirect: "/react-app",
   },
@@ -23,11 +24,9 @@ function createApp({ name, route, redirect }) {
   };
 
   if (redirect) {
-    application.app = () => {
-      if (window.location.pathname === route) navigateToUrl(redirect);
-    };
+    application.app = async () => RedirectComponent({ route, redirect });
   } else {
-    application.app = () => System.import(name);
+    application.app = async () => System.import(name);
   }
 
   return application;

@@ -15,17 +15,17 @@ import { store, increment, decrement } from "@mallone/state-management";
 import singleSpa from "single-spa";
 
 export default {
-  name: "HelloWorld",
+  name: "Count",
   data() {
     return {
       store: store.getState(),
     };
   },
   mounted() {
-    function handleStore() {
-      this.store = store.getState();
-    }
-    store.subscribe(handleStore.bind(this));
+    this.unsubscribe = store.subscribe(this.handleStore);
+  },
+  unmounted() {
+    this.unsubscribe();
   },
   methods: {
     increment() {
@@ -36,6 +36,9 @@ export default {
     },
     redirect() {
       singleSpa.navigateToUrl("/react-app");
+    },
+    handleStore() {
+      this.store = store.getState();
     },
   },
 };
