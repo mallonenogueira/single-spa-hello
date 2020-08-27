@@ -1,6 +1,6 @@
 import React from "react";
+import singleSpa from "single-spa";
 import { useSelector, useDispatch } from "react-redux";
-import { Title } from "@mallone/react-styleguide";
 import { increment, decrement } from "@mallone/state-management";
 
 export default function Count(props) {
@@ -9,12 +9,15 @@ export default function Count(props) {
 
   return (
     <section>
-      <Title>
+      <h2>
         Contador com redux: <span>{count}</span>
-      </Title>
+      </h2>
 
       <button onClick={() => dispatch(increment())}>increment</button>
       <button onClick={() => dispatch(decrement())}>decrement</button>
+      <button onClick={() => singleSpa.navigateToUrl("/vue-app")}>
+        vue-app
+      </button>
     </section>
   );
 }

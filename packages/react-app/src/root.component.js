@@ -6,7 +6,7 @@ import Count from "./components/count.component";
 export default function Root(props) {
   return (
     <Provider store={store}>
-      {props.name} is mounted!
+      <h1>{props.name} is mounted!</h1>
       <Count />
     </Provider>
   );

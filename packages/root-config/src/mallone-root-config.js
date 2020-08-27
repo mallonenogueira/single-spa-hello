@@ -1,19 +1,39 @@
-import { registerApplication, start } from "single-spa";
+import { registerApplication, start, navigateToUrl } from "single-spa";
 
-// registerApplication({
-//   name: "@single-spa/welcome",
-//   app: () =>
-//     System.import(
-//       "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-//     ),
-//   activeWhen: ["/"],
-// });
+const routes = [
+  {
+    name: "home-redirect",
+    route: "/",
+    redirect: "/react-app",
+  },
+  {
+    name: "@mallone/react-app",
+    route: "/react-app",
+  },
+  {
+    name: "@mallone/vue-app",
+    route: "/vue-app",
+  },
+];
 
-registerApplication({
-  name: "@mallone/navbar",
-  app: () => System.import("@mallone/navbar"),
-  activeWhen: ["/"],
-});
+function createApp({ name, route, redirect }) {
+  const application = {
+    name,
+    activeWhen: [route],
+  };
+
+  if (redirect) {
+    application.app = () => {
+      if (window.location.pathname === route) navigateToUrl(redirect);
+    };
+  } else {
+    application.app = () => System.import(name);
+  }
+
+  return application;
+}
+
+routes.map(createApp).map(registerApplication);
 
 start({
   urlRerouteOnly: true,
