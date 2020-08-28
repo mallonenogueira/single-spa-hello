@@ -40,20 +40,6 @@
       as="script"
     />
 
-    <script
-      type="systemjs-importmap"
-      src="http://localhost:8081/importmap.json"
-    ></script>
-
-    <% if (isLocal) { %>
-    <script type="systemjs-importmap">
-      {
-        "imports": {
-          "@mallone/root-config": "//localhost:9000/mallone-root-config.js"
-        }
-      }
-    </script>
-    <% } %>
 
     <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
@@ -62,11 +48,21 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/zone.js@0.10.3/dist/zone.min.js"></script> -->
 
     <% if (isLocal) { %>
+      <script
+      type="systemjs-importmap"
+      src="http://localhost:8081/importmap.dev.json"
+    ></script>
+
     <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.16.0/dist/import-map-overrides.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/system.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/amd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/named-exports.js"></script>
     <% } else { %>
+      <script
+      type="systemjs-importmap"
+      src=/importmap.json"
+    ></script>
+
     <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.16.0/dist/import-map-overrides.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/amd.min.js"></script>
