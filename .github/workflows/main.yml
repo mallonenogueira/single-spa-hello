@@ -31,4 +31,19 @@ jobs:
       
       - name: Lerna install packages
         run: node_modules/lerna/cli.js bootstrap
+      
+      - name: Lerna build packages
+        run: node_modules/lerna/cli.js run build
+        
+      - run: rm -rf public
+        
+      - run: mkdir public
+
+      - name: Move dist packages
+        run: for i in $(ls -d packages/*/dist/*) 
+              do 
+                cp -r $i public
+              done
+        
+      - run: ls public
 
