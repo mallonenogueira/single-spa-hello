@@ -21,9 +21,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.3
 
       - name: Npm install
         run: npm install
@@ -55,6 +52,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
           FOLDER: ./public
+          BRANCH: gh-pages
       
       
     
