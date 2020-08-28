@@ -1,4 +1,4 @@
-import { registerApplication, start, navigateToUrl } from "single-spa";
+import { registerApplication, start } from "single-spa";
 import RedirectComponent from "./redirect.component";
 
 const routes = [

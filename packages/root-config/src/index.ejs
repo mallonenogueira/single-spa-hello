@@ -33,13 +33,6 @@
 
     More information about shared dependencies can be found at https://single-spa.js.org/docs/recommended-setup#sharing-with-import-maps.
   -->
-    <!-- <script type="systemjs-importmap">
-      {
-        "imports": {
-          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.5/lib/system/single-spa.min.js"
-        }
-      }
-    </script> -->
 
     <link
       rel="preload"
@@ -47,7 +40,6 @@
       as="script"
     />
 
-    <!-- Add your organization's prod import map URL to this script's src  -->
     <script
       type="systemjs-importmap"
       src="http://localhost:8081/importmap.json"
@@ -82,7 +74,6 @@
     <% } %>
   </head>
   <body>
-    <main></main>
     <script>
       System.import("@mallone/root-config");
     </script>

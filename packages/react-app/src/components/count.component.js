@@ -2,15 +2,17 @@ import React from "react";
 import singleSpa from "single-spa";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "@mallone/state-management";
+import VanillaComponent from "./vanilla-js.component";
+import Parcel from "./parcel.component";
 
-export default function Count(props) {
-  const count = useSelector((state) => state.counter);
+export default function Count() {
+  const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
   return (
     <section>
       <h2>
-        Contador com redux: <span>{count}</span>
+        Contador com redux: <span>{counter}</span>
       </h2>
 
       <button onClick={() => dispatch(increment())}>increment</button>
@@ -18,6 +20,8 @@ export default function Count(props) {
       <button onClick={() => singleSpa.navigateToUrl("/vue-app")}>
         vue-app
       </button>
+
+      <Parcel component={VanillaComponent} counter={counter} />
     </section>
   );
 }
