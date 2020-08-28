@@ -1,29 +1,37 @@
 import { registerApplication, start } from "single-spa";
 import RedirectComponent from "./redirect.component";
 
-const indexpath = "/single-spa-hello";
-
 const routes = [
   {
     name: "home-redirect",
-    route: indexpath + "/",
+    routes: ["/single-spa-hello/", "/"],
     exact: true,
     redirect: "/single-spa-hello/react-app",
   },
   {
     name: "@mallone/react-app",
-    route: indexpath + "/react-app",
+    routes: "/single-spa-hello/react-app",
   },
   {
     name: "@mallone/vue-app",
-    route: indexpath + "/vue-app",
+    routes: "/single-spa-hello/vue-app",
   },
 ];
 
-function createApp({ name, route, redirect, exact }) {
+function getActiveWhen({ routes, exact }) {
+  const arrayRoutes = Array.isArray(routes) ? routes : [routes];
+
+  if (exact) {
+    return ({ pathname }) => arrayRoutes.find((route) => pathname === route);
+  }
+
+  return arrayRoutes;
+}
+
+function createApp({ name, routes, redirect, exact }) {
   const application = {
     name,
-    activeWhen: exact ? ({ pathname }) => pathname === route : [route],
+    activeWhen: getActiveWhen({ routes, exact }),
     customProps: {
       redirect,
     },
