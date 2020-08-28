@@ -45,9 +45,9 @@ jobs:
                 cp -r $i public
               done
         
-      - name: Upload public folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: Public folder
-          path: public
+     # - name: Upload public folder
+     #   uses: actions/upload-artifact@v2
+     #   with:
+     #     name: Public folder
+     #     path: public
 
