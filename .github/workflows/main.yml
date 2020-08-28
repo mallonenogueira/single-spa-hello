@@ -21,14 +21,40 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.3
 
-      # Runs a single command using the runners shell
       - name: Npm install
         run: npm install
       
       - name: Lerna install packages
         run: node_modules/lerna/cli.js bootstrap
+      
+      - name: Lerna build packages
+        run: node_modules/lerna/cli.js run build
+        
+      - name: Clean public folder
+        run: rm -rf public && mkdir public
+
+      - name: Move dist packages
+        shell: bash
+        run: |
+              for i in $(ls -d packages/*/dist/*) 
+              do 
+                cp -r $i public
+              done
+        
+      - name: Upload public folder
+        uses: actions/upload-artifact@v2
+        with:
+          name: Public folder
+          path: public
+  
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          FOLDER: public
+          CLEAN: true
+          BRANCH: gh-pages
+      
+      
+    
 
