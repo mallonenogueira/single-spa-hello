@@ -3,9 +3,9 @@
     "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.5/lib/system/single-spa.min.js",
     "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
     "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
-    "@mallone/root-config": "/mallone-root-config.js",
-    "@mallone/react-app": "/mallone-react-app.js",
-    "@mallone/vue-app": "/vue_app.js",
-    "@mallone/state-management": "/mallone-state-management.js"
+    "@mallone/root-config": "/single-spa-hello/mallone-root-config.js",
+    "@mallone/react-app": "/single-spa-hello/mallone-react-app.js",
+    "@mallone/vue-app": "/single-spa-hello/vue_app.js",
+    "@mallone/state-management": "/single-spa-hello/mallone-state-management.js"
   }
 }
