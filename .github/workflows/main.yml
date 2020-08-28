@@ -50,4 +50,12 @@ jobs:
         with:
           name: Public folder
           path: public
+  
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          FOLDER: ./public
+      
+      
+    
 
