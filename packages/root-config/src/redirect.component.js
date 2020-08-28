@@ -1,9 +1,9 @@
 import { navigateToUrl } from "single-spa";
 
-export default function Redirect({ route, redirect }) {
+export default function Redirect() {
   return {
-    async bootstrap() {
-      if (window.location.pathname === route) navigateToUrl(redirect);
+    async bootstrap({ redirect }) {
+      navigateToUrl(redirect);
     },
     async mount() {},
     async unmount() {},

@@ -3,8 +3,9 @@ import RedirectComponent from "./redirect.component";
 
 const routes = [
   {
-    name: "my-application",
+    name: "home-redirect",
     route: "/",
+    exact: true,
     redirect: "/react-app",
   },
   {
@@ -17,14 +18,17 @@ const routes = [
   },
 ];
 
-function createApp({ name, route, redirect }) {
+function createApp({ name, route, redirect, exact }) {
   const application = {
     name,
-    activeWhen: [route],
+    activeWhen: exact ? ({ pathname }) => pathname === route : [route],
+    customProps: {
+      redirect,
+    },
   };
 
   if (redirect) {
-    application.app = async () => RedirectComponent({ route, redirect });
+    application.app = async () => RedirectComponent();
   } else {
     application.app = async () => System.import(name);
   }
