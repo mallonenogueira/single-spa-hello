@@ -17,7 +17,9 @@ export default function Count() {
 
       <button onClick={() => dispatch(increment())}>increment</button>
       <button onClick={() => dispatch(decrement())}>decrement</button>
-      <button onClick={() => singleSpa.navigateToUrl("/vue-app")}>
+      <button
+        onClick={() => singleSpa.navigateToUrl("/single-spa-hello/vue-app")}
+      >
         vue-app
       </button>
 
