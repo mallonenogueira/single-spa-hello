@@ -1,20 +1,22 @@
 import { registerApplication, start } from "single-spa";
 import RedirectComponent from "./redirect.component";
 
+const indexpath = "/single-spa-hello";
+
 const routes = [
   {
     name: "home-redirect",
-    route: "/",
+    route: indexpath + "/",
     exact: true,
     redirect: "/react-app",
   },
   {
     name: "@mallone/react-app",
-    route: "/react-app",
+    route: indexpath + "/react-app",
   },
   {
     name: "@mallone/vue-app",
-    route: "/vue-app",
+    route: indexpath + "/vue-app",
   },
 ];
 
