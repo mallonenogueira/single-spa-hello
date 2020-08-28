@@ -51,7 +51,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
-          FOLDER: ./public
+          FOLDER: public
           BRANCH: gh-pages
       
       
