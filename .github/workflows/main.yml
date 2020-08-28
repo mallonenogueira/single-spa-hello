@@ -40,7 +40,9 @@ jobs:
       - run: mkdir public
 
       - name: Move dist packages
-        run: for i in $(ls -d packages/*/dist/*) 
+        shell: bash
+        run: |
+              for i in $(ls -d packages/*/dist/*) 
               do 
                 cp -r $i public
               done
