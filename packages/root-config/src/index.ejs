@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Root Config</title>
+    <title>Single-SPA | Hello</title>
     <!--
     Remove this if you only support browsers that support async/await.
     This is needed by babel to share largeish helper code for compiling async/await in older
@@ -40,7 +40,6 @@
       as="script"
     />
 
-
     <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
     Learn more about why at https://single-spa.js.org/docs/ecosystem-angular/#zonejs
@@ -48,7 +47,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/zone.js@0.10.3/dist/zone.min.js"></script> -->
 
     <% if (isLocal) { %>
-      <script
+    <script
       type="systemjs-importmap"
       src="http://localhost:8081/importmap.dev.json"
     ></script>
@@ -58,10 +57,7 @@
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/amd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/extras/named-exports.js"></script>
     <% } else { %>
-      <script
-      type="systemjs-importmap"
-      src=/importmap.json"
-    ></script>
+    <script type="systemjs-importmap" src="/importmap.json"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.16.0/dist/import-map-overrides.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.4.0/dist/system.min.js"></script>
