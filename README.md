@@ -1,4 +1,7 @@
-# Teste com single-spa e redux compartilhado
+# Teste com single-spa e redux
+
+Microfrontend compartilhando redux entre React e Vue
+
 
 ## Como rodar
 
