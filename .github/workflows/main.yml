@@ -22,8 +22,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.3
+      #- name: Setup Node.js environment
+      #  uses: actions/setup-node@v1.4.3
 
       # Runs a single command using the runners shell
       - name: Npm install
@@ -35,9 +35,8 @@ jobs:
       - name: Lerna build packages
         run: node_modules/lerna/cli.js run build
         
-      - run: rm -rf public
-        
-      - run: mkdir public
+      - name: Clean public folder
+      - run: rm -rf public && mkdir public
 
       - name: Move dist packages
         shell: bash
@@ -47,5 +46,9 @@ jobs:
                 cp -r $i public
               done
         
-      - run: ls public
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v2
+        with:
+          name: Public folder
+          path: public
 
