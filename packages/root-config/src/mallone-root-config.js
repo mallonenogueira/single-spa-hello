@@ -8,7 +8,7 @@ const routes = [
     name: "home-redirect",
     route: indexpath + "/",
     exact: true,
-    redirect: "/react-app",
+    redirect: "/single-spa-hello/react-app",
   },
   {
     name: "@mallone/react-app",

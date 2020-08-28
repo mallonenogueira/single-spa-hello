@@ -35,7 +35,7 @@ export default {
       store.dispatch(decrement());
     },
     redirect() {
-      singleSpa.navigateToUrl("/react-app");
+      singleSpa.navigateToUrl("/single-spa-hello/react-app");
     },
     handleStore() {
       this.store = store.getState();
